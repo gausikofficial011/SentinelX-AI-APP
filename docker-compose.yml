@@ -1,0 +1,86 @@
+version: '3.8'
+
+services:
+  # ----------------------------------------------------
+  # POSTGRESQL (with PostGIS)
+  # ----------------------------------------------------
+  postgres:
+    image: postgis/postgis:15-3.3
+    container_name: sentinelx_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: sentinelx
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      # Optionally, you can map the schema initialization script here:
+      # - ./database/schema/001_initial_schema.sql:/docker-entrypoint-initdb.d/001_initial_schema.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d sentinelx"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ----------------------------------------------------
+  # REDIS
+  # ----------------------------------------------------
+  redis:
+    image: redis:7-alpine
+    container_name: sentinelx_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ----------------------------------------------------
+  # NODE.JS API (Backend)
+  # ----------------------------------------------------
+  node-api:
+    build:
+      context: ./backend/node-api
+    container_name: sentinelx_node_api
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - NODE_PORT=3000
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/sentinelx
+      - DB_HOST=postgres
+      - REDIS_URL=redis://redis:6379
+      - JWT_SECRET=development_jwt_secret_not_for_production_32chars
+      - JWT_REFRESH_SECRET=development_jwt_refresh_secret_not_for_production_32chars
+      - DEMO_MODE=true
+      - AI_ENGINE_URL=http://python-ai:8000
+      - CORS_ORIGIN=http://localhost:3000,http://10.0.2.2:3000
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  # ----------------------------------------------------
+  # PYTHON FASTAPI (AI Engine)
+  # ----------------------------------------------------
+  python-ai:
+    build:
+      context: ./backend/python-ai
+    container_name: sentinelx_python_ai
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=development
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/sentinelx
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+  redis_data:

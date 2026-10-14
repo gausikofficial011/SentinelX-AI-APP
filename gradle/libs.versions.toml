@@ -1,0 +1,265 @@
+[versions]
+# ============================================================
+# Android / Gradle
+# ============================================================
+agp = "8.13.2"
+kotlin = "2.0.0"
+ksp = "2.0.0-1.0.21"
+
+# ============================================================
+# Kotlin Coroutines & Serialization
+# ============================================================
+coroutines = "1.8.1"
+serialization = "1.6.3"
+
+# ============================================================
+# Jetpack Compose
+# ============================================================
+composeBom = "2024.06.00"
+activityCompose = "1.9.0"
+navigationCompose = "2.7.7"
+lifecycleCompose = "2.8.3"
+
+# ============================================================
+# Jetpack / AndroidX
+# ============================================================
+coreKtx = "1.13.1"
+appcompat = "1.7.0"
+material = "1.12.0"
+constraintlayout = "2.1.4"
+lifecycle = "2.8.3"
+fragment = "1.8.1"
+
+# ============================================================
+# Hilt (Dependency Injection)
+# ============================================================
+hilt = "2.51.1"
+hiltNavigationCompose = "1.2.0"
+
+# ============================================================
+# Room (Local Database)
+# ============================================================
+room = "2.6.1"
+
+# ============================================================
+# DataStore
+# ============================================================
+datastore = "1.1.1"
+
+# ============================================================
+# WorkManager
+# ============================================================
+workmanager = "2.9.0"
+
+# ============================================================
+# Networking
+# ============================================================
+retrofit = "2.11.0"
+okhttp = "4.12.0"
+gson = "2.10.1"
+
+# ============================================================
+# Google Maps
+# ============================================================
+googleMaps = "18.2.0"
+googleLocation = "21.3.0"
+mapsCompose = "4.4.1"
+
+# ============================================================
+# Firebase
+# ============================================================
+firebaseBom = "33.1.2"
+googleServices = "4.4.2"
+
+# ============================================================
+# Camera
+# ============================================================
+camerax = "1.3.4"
+
+# ============================================================
+# Security
+# ============================================================
+biometric = "1.1.0"
+securityCrypto = "1.1.0-alpha06"
+
+# ============================================================
+# WebSocket / Socket.IO
+# ============================================================
+socketio = "2.1.0"
+
+# ============================================================
+# Charts
+# ============================================================
+mpandroidchart = "v3.1.0"
+composeCharts = "1.2.0"
+
+# ============================================================
+# Image Loading
+# ============================================================
+coil = "2.6.0"
+
+# ============================================================
+# Paging
+# ============================================================
+paging = "3.3.0"
+
+# ============================================================
+# Testing
+# ============================================================
+junit = "4.13.2"
+junitExt = "1.2.1"
+espresso = "3.6.1"
+mockk = "1.13.11"
+turbine = "1.1.0"
+
+[libraries]
+# ============================================================
+# Core
+# ============================================================
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+# ============================================================
+# Compose BOM
+# ============================================================
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+compose-ui = { group = "androidx.compose.ui", name = "ui" }
+compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
+compose-animation = { group = "androidx.compose.animation", name = "animation" }
+compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
+compose-runtime = { group = "androidx.compose.runtime", name = "runtime" }
+
+# ============================================================
+# Activity / Lifecycle / Navigation
+# ============================================================
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycleCompose" }
+lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+lifecycle-runtime-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycleCompose" }
+
+# ============================================================
+# Hilt
+# ============================================================
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+
+# ============================================================
+# Room
+# ============================================================
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+
+# ============================================================
+# DataStore
+# ============================================================
+datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
+
+# ============================================================
+# WorkManager
+# ============================================================
+workmanager-ktx = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "workmanager" }
+hilt-work = { group = "androidx.hilt", name = "hilt-work", version = "1.2.0" }
+hilt-compiler-work = { group = "androidx.hilt", name = "hilt-compiler", version = "1.2.0" }
+
+# ============================================================
+# Networking
+# ============================================================
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+
+# ============================================================
+# Kotlin Coroutines
+# ============================================================
+coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+
+# ============================================================
+# Serialization
+# ============================================================
+kotlin-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization" }
+
+# ============================================================
+# Google Maps
+# ============================================================
+google-maps = { group = "com.google.android.gms", name = "play-services-maps", version.ref = "googleMaps" }
+google-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "googleLocation" }
+maps-compose = { group = "com.google.maps.android", name = "maps-compose", version.ref = "mapsCompose" }
+
+# ============================================================
+# Firebase
+# ============================================================
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
+firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging-ktx" }
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics-ktx" }
+
+# ============================================================
+# CameraX
+# ============================================================
+camera-core = { group = "androidx.camera", name = "camera-core", version.ref = "camerax" }
+camera-camera2 = { group = "androidx.camera", name = "camera-camera2", version.ref = "camerax" }
+camera-lifecycle = { group = "androidx.camera", name = "camera-lifecycle", version.ref = "camerax" }
+camera-video = { group = "androidx.camera", name = "camera-video", version.ref = "camerax" }
+camera-view = { group = "androidx.camera", name = "camera-view", version.ref = "camerax" }
+camera-extensions = { group = "androidx.camera", name = "camera-extensions", version.ref = "camerax" }
+
+# ============================================================
+# Security
+# ============================================================
+biometric = { group = "androidx.biometric", name = "biometric", version.ref = "biometric" }
+security-crypto = { group = "androidx.security", name = "security-crypto", version.ref = "securityCrypto" }
+
+# ============================================================
+# Socket.IO
+# ============================================================
+socketio-client = { group = "io.socket", name = "socket.io-client", version.ref = "socketio" }
+
+# ============================================================
+# Charts
+# ============================================================
+mpandroidchart = { group = "com.github.PhilJay", name = "MPAndroidChart", version.ref = "mpandroidchart" }
+
+# ============================================================
+# Image Loading
+# ============================================================
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+
+# ============================================================
+# Paging
+# ============================================================
+paging-runtime = { group = "androidx.paging", name = "paging-runtime-ktx", version.ref = "paging" }
+paging-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "paging" }
+
+# ============================================================
+# Testing
+# ============================================================
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+junit-ext = { group = "androidx.test.ext", name = "junit", version.ref = "junitExt" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
+compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
+turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
+lifecycle-viewmodel-testing = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-testing", version.ref = "lifecycle" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
